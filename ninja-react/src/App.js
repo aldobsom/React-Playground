@@ -1,30 +1,20 @@
 import React, { Component } from 'react';
 import './App.css';
+import Ninjas from './Ninjas';
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: ""
-    }
+class App extends Component{
+  state = {
+    ninjas: [
+      {name: "Ryu", age: 30, belt: "red", id: 1},
+      {name: "Melk", age: 34, belt: "blue", id: 2},
+      {name: "Lola", age: 28, belt: "yellow", id:3}
+    ]
   }
-  handleChange = (e) => {
-    this.setState({
-      name: e.target.value
-    })
-  }
-  handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form submitted: ", this.state.name )
-  }
+
   render() {
     return (
       <div className="App">
-        <h2>Hello {this.state.name}</h2>
-        <form onSubmit = {this.handleSubmit}>
-          <input onChange={this.handleChange} type="text"></input>
-          <button>Send</button>
-        </form>
+        <Ninjas ninjas={this.state.ninjas} />
       </div>
     );
   }

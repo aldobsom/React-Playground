@@ -7,8 +7,3 @@ it('renders without crashing', () => {
   ReactDOM.render(<App />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
-
-test('first test', () => {
-  const lex = 19;
-  expect(lex).toBe(19);
-});

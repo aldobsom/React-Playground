@@ -2,20 +2,18 @@ import React, {useState} from 'react';
 
 const IsOnline = () => {
 
-  const [status, setStatus] = useState('offline');
+  const [status, setStatus] = useState(false);
 
   const handleClick = (e) => {
     e.preventDefault();
-    if(status === 'offline') {
-      return setStatus('online');
-    }
-    setStatus('offline');
+    console.log("Status is:" + status);
+    setStatus(!status);
   } 
 
   return(
     <>
-      <h1>You are: {status}</h1>
-      <button onClick={handleClick}>Get {status === 'offline' ? 'online' : 'offline'}</button>
+      <h1>You are: {status === true ? "Online" : "Offline"}</h1>
+      <button onClick={handleClick}>Get {status === true ? "Offline" : "Online"}</button>
     </>
   )
 }

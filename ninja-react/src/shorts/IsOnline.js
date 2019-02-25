@@ -10,9 +10,14 @@ const IsOnline = () => {
     setStatus(!status);
   } 
 
+  const mystyle = {
+    color:'red',
+    fontSize: 30
+  }
+
   return(
     <>
-      <h1>You are: {status === true ? "Online" : "Offline"}</h1>
+      <h1 style={mystyle}>You are: {status === true ? "Online" : "Offline"}</h1>
       <button onClick={handleClick}>Get {status === true ? "Offline" : "Online"}</button>
     </>
   )

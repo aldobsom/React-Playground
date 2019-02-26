@@ -3,13 +3,14 @@ import React, {useState, useEffect} from 'react';
 const FetchApi = () => {
   const [data, setData] = useState('');
 
-  useEffect( () =>{
+  //this will render once as ComponentDidMount()
+  useEffect( () =>{  
     fetch("https://swapi.co/api/people/1")
     .then(response => response.json())
     .then(data => {
         setData(data)
     })
-  }, []); //this will render once as ComponentDidMount()
+  }, [data]); //it's only gonna be called when data changes ( [data] it can be [])
 
   console.log(data);
   

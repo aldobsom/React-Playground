@@ -10,7 +10,8 @@ const FetchApi = () => {
     .then(data => {
         setData(data)
     })
-  }, [data]); //it's only gonna be called when data changes ( [data] it can be [])
+  }, []); // if is [] then no update nor continuous loop (ComponentDidUpdate)
+//it's only gonna be called when data changes ( [something] ) 
 
   console.log(data);
   

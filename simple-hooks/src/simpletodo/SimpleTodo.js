@@ -9,7 +9,7 @@ const SimpleTodo = () => {
 
   const mystuff = mydata.map(item => {
         return(
-          <li key={item.id} >
+          <li key={item.id}>
             <input type="checkbox"/>
             <p>{item.text}</p>
           </li>

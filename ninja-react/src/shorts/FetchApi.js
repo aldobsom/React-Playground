@@ -1,7 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
+import SomeStyle from './SomeStyle';
 
 const FetchApi = () => {
   const [data, setData] = useState('');
+  const stil = useContext(SomeStyle);
 
   //this will render once as ComponentDidMount()
   useEffect( () =>{  
@@ -15,7 +17,7 @@ const FetchApi = () => {
 
   console.log(data);
   
-  return (<h1>{data.name}</h1>);
+  return (<h1 style={stil}>{data.name}</h1>);
 }
 
 export default FetchApi; 

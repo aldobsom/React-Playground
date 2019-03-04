@@ -2,5 +2,5 @@ import React from "react";
 
 export default () => {
 return(
-    <h1>Header</h1>
+    <h1>Meme Generator</h1>
 )}

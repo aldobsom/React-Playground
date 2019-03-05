@@ -3,16 +3,15 @@ import './App.css';
 import ResourceList from './comps/ResourceList';
 
 const App = () => {
-  const [resource, setResource] = useState('Tab 1 Content');
+  const [resource, setResource] = useState("posts");
   // const handleClick = (e) => {
   //   e.preventDefault();
   //   setTab('Something 2');
   // }
   return(
     <>
-      <button onClick={()=>setResource('Tab 1 Content')}>Tab 1</button>   
-      <button onClick={()=>setResource('Tab 2 Content')}>Tab 2</button>
-      <button onClick={()=>setResource('Tab 3 Content')}>Tab 3</button>   
+      <button onClick={()=>setResource('posts')}>Posts</button>   
+      <button onClick={()=>setResource('todos')}>Todos</button>
    
       <ResourceList resource={resource}/>
     </>

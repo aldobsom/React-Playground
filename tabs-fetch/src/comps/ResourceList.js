@@ -4,17 +4,17 @@ import axios from 'axios';
 export default ({resource}) => {
     const [resources, setResources] = useState([]);
 
-    const fetchResource = async (resource) => {
+    useEffect( () => {
+      (async (resource) => {
         const response = await axios.get(
           `https://jsonplaceholder.typicode.com/${
-            resource
+          resource
           }`
         );
         setResources(response.data);
-    }
-    useEffect( () => {
-        fetchResource(resource);
+      })(resource);
     }, [resource])
+    
     return (
       <>
         <h1>

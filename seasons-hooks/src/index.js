@@ -2,24 +2,12 @@ import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import SeasonDisplay from './SeasonDisplay';
 import Spinner from './Spinner';
+import useLocation from './useLocation';
+
 
 const App = () => {
-  const [lat, setLat] = useState(null);
-  const [errorMessage, setErrorMessage] = useState('');
-
-  useEffect( () => {
-    navigator.geolocation.getCurrentPosition(
-      position => {
-        console.log(position);
-        setLat(position.coords.latitude);
-      },
-      err => {
-        console.log(err);
-        setErrorMessage(err.message);
-      }
-    );
-  }, [] ) //this will happen once
-
+  const [lat, errorMessage] = useLocation();
+  
   let content;
   if(errorMessage) {
     content = <div>Error: {errorMessage}</div>
@@ -31,6 +19,7 @@ const App = () => {
 
   return <div className="border red">{content}</div>;
 }
+
 
 
 ReactDOM.render(<App/>, document.querySelector("#root"));

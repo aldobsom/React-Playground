@@ -27,3 +27,8 @@
 .addtodo {
   width: 100%;
 }
+
+.completed {
+  text-decoration: line-through;
+  color:gray;
+}

@@ -10,13 +10,33 @@ const App = () => {
     { text: "text 3", isCompleted: false },
   ]);
 
-  const addTodo = (text) => {
-    const newTodos = [...todos, {text: text, isCompleted: false}];
+  const addTodo = (value) => {
+    const newTodos = [...todos, {text: value, isCompleted: false}];
     setTodos(newTodos);
   }
 
+   const completeTodo = index => {
+    const newTodos = [...todos];
+    if(newTodos[index].isCompleted){
+      newTodos[index].isCompleted = false;
+    } else {
+      newTodos[index].isCompleted = true;
+    }
+    setTodos(newTodos);
+    // console.log(newTodos);
+  };
+
+  const removeTodo = index => {
+    const newTodos = [...todos];
+    newTodos.splice(index, 1); //or a filter() that returns todos that are different than this "index"
+    setTodos(newTodos);
+  };
+
   const todoList = todos.map( (todo, index) => {
-    return <Todo key = {index} index = {index} todo = {todo} />
+    return (
+      <Todo key = {index} index ={index} todo = {todo} complete={completeTodo} remove={removeTodo}>
+      </Todo>
+    )
   } ); 
 
   return (

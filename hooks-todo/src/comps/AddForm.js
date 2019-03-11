@@ -3,16 +3,11 @@ import React, {useState} from 'react';
 const AddForm = ({addTodo, todos}) => {
   const [value, setValue] = useState('');
 
-  // const addTodo = (text) => {
-  //   const newTodos = [...todos, {text: text}];
-  //   console.log(todos);
-  //   return newTodos;
-  // }
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if(!value) return;
     addTodo(value);
+    setValue('');
   }
 
   return (

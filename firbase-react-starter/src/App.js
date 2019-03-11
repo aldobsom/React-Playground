@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import './App.css';
 import * as firebase from 'firebase';
 
+//works on Realtime Database
+//Cloud Firestore not tried!
 const App = () => {
   const [speed, setSpeed] = useState(34);
 

@@ -1,41 +1,33 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 import * as firebase from 'firebase';
 
-class App extends React.Component {
-  state = {
-    speed: 11
+const App = () => {
+  const [speed, setSpeed] = useState(34);
+
+  const handleChange = (e) => {
+    // setSpeed(e.target.value);
+    let newNumber = Number(e.target.value);
+    firebase.database().ref().set({
+      speed: newNumber
+    });
   }
 
-  componentDidMount() {
-    const rootRef = firebase.database().ref().child('test-e37bd');
-    console.log(rootRef);
-    const speedRef = rootRef.child("speed");
-     console.log(speedRef);
-    speedRef.on('value', snap => {
-      this.setState({speed: snap.val});
-      console.log(snap.val);
-    })
-  }
+  useEffect( ()=> {
+      var starCountRef = firebase.database().ref();
+      starCountRef.on('value', (snapshot) => {
+      console.log(snapshot.val().speed);
+      let newspeed = snapshot.val().speed; console.log(newspeed);
+        setSpeed(newspeed);
+      });
+  }, [])
 
-  render() {
-    return this.state.speed;
-  }
+
+  return(
+    <div>{speed}
+      <input type="number" value={speed} onChange={handleChange} />
+    </div>
+  );
 }
-
-// const App = () => {
-//   const [speed, setSpeed] = useState(10);
-
-//   useEffect(()=>{
-//     const rootRef = firebase.database().ref().child('test-e37bd');
-//     const speedRef = rootRef.child("speed");
-//     speedRef.on('value', snap => {
-//       setSpeed(snap.val);
-//        console.log(snap.val);
-//     })
-//   }, [speed])
-
-//   return speed;
-// }
 
 export default App;

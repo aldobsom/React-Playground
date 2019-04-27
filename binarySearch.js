@@ -25,3 +25,18 @@ var primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37,
 var result = doSearch(primes, 73);
 console.log("Found prime at index " + result);
 
+const a;
+const c;
+const c;
+const c;
+const b;
+const c;
+const c;
+const c;
+const c;
+const c;
+const c;
+const c;
+const c;
+const c;
+const c;
